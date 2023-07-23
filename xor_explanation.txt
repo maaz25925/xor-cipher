@@ -1,0 +1,44 @@
+XOR encryption (exclusive OR encryption) is a simple and basic form of encryption that uses the XOR operation to encrypt and decrypt data. XOR is a bitwise operation that takes two binary inputs and outputs a result where each bit in the output is the result of the XOR operation on the corresponding bits of the input.
+
+Here's how XOR works on a single bit:
+
+0 XOR 0 = 0
+0 XOR 1 = 1
+1 XOR 0 = 1
+1 XOR 1 = 0
+
+To encrypt data using XOR encryption, you need a key, which is a random or pseudorandom sequence of bits of the same length as the data you want to encrypt. The XOR operation is then performed between each bit of the data and the corresponding bit of the key.
+
+Let's take a simple example of encrypting the message "HELLO" with the key "KEY". First, we need to convert both the message and the key into binary representations:
+
+Message: H -> 01001000
+         E -> 01000101
+         L -> 01001100
+         L -> 01001100
+         O -> 01001111
+
+Key:     K -> 01001011
+         E -> 01000101
+         Y -> 01011001
+
+Now, we perform the XOR operation between each bit of the message and the key:
+
+Encrypted Message:  (01001000 XOR 01001011) -> 00000011 (3 in decimal)
+                    (01000101 XOR 01000101) -> 00000000 (0 in decimal)
+                    (01001100 XOR 01011001) -> 00010101 (21 in decimal)
+                    (01001100 XOR 01001011) -> 00000111 (7 in decimal)
+                    (01001111 XOR 01000101) -> 00001010 (10 in decimal)
+
+The encrypted message in decimal form is: 3, 0, 21, 7, 10.
+
+To decrypt the encrypted message, you simply perform the XOR operation again between the encrypted data and the key:
+
+Decrypted Message:  (00000011 XOR 01001011) -> 01001000 (H)
+                    (00000000 XOR 01000101) -> 01000101 (E)
+                    (00010101 XOR 01011001) -> 01001100 (L)
+                    (00000111 XOR 01001011) -> 01001100 (L)
+                    (00001010 XOR 01000101) -> 01001111 (O)
+
+So, the original message "HELLO" is recovered.
+
+It's important to note that XOR encryption is relatively weak and not considered secure for modern cryptographic purposes. It is vulnerable to various attacks, especially if the key is short or not truly random. Modern encryption algorithms use more sophisticated techniques and longer key lengths to provide strong security.
